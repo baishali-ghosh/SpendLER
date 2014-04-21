@@ -1,0 +1,23 @@
+body
+{
+margin: 0;
+padding: 0;
+padding-top: 220px;
+padding-left: 120px;
+text-align: left;
+}
+#centered
+{
+width: 800px;
+text-align: left;
+border: 0px;
+padding: 0;
+margin: 0 auto;
+}
+#new{
+	text-align: center;
+}
+#canvas{
+	
+	padding-left: 0px;
+}

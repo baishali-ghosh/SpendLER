@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Enter expense</title>
+  <link rel="stylesheet" href="css/expense.css" /> 
+  <script scriptc="js/jquery.js"></script>
+  <script src="js/foundation.min.js"></script>
+  <script src="js/modernizr.js"></script>
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <script src="js/jquery-1.10.2.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script >
+    function calc() {
+      var table = document.getElementById('users');
+      var rowCount = table.rows.length;
+      var tot=0;
+      for(var i=1; i<rowCount; i++) {
+       var thisTrElem = table.rows[i];
+       var thisTdElem = thisTrElem.cells[1];      
+       var thisTextNode = thisTdElem.childNodes.item(0);
+       var thisNumber = parseFloat(thisTextNode.data);
+       // if you didn't get back the value NaN (i.e. not a number), add into result
+       if (!isNaN(thisNumber))
+         tot += thisNumber;
+     }
+     alert("Your total expense so far: " + tot);
+   }
+
+ </script>
+ <link rel="stylesheet" href="/resources/demos/style.css">
+ <style>
+  body {
+    background-image: url(img/template.jpg);
+    font-size: 62.5%; }
+    label, input { display:block; }
+    input.text { margin-bottom:12px; width:95%; padding: .4em; }
+    fieldset { padding:0; border:0; margin-top:25px; }
+    h1 { font-size: 1.2em; margin: .6em 0; }
+    div#users-contain { width: 350px; margin: 20px 0; }
+    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+    .ui-dialog .ui-state-error { padding: .3em; }
+    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+  </style>
+  <script>
+    $(function() {
+      var name = $( "#name" ),
+      email = $( "#email" ),
+      password = $( "#password" ),
+      allFields = $( [] ).add( name ).add( email ).add( password ),
+      tips = $( ".validateTips" );
+
+      function updateTips( t ) {
+        tips
+        .text( t )
+        .addClass( "ui-state-highlight" );
+        setTimeout(function() {
+          tips.removeClass( "ui-state-highlight", 1500 );
+        }, 500 );
+      }
+
+      function checkLength( o, n, min, max ) {
+        if ( o.val().length > max || o.val().length < min ) {
+          o.addClass( "ui-state-error" );
+          updateTips( "Length of " + n + " must be between " +
+            min + " and " + max + "." );
+          return false;
+        } else {
+          return true;
+        }
+      }
+
+      function checkRegexp( o, regexp, n ) {
+        if ( !( regexp.test( o.val() ) ) ) {
+          o.addClass( "ui-state-error" );
+          updateTips( n );
+          return false;
+        } else {
+          return true;
+        }
+      }
+
+      $( "#dialog-form" ).dialog({
+        autoOpen: false,
+        height: 300,
+        width: 350,
+        modal: true,
+        buttons: {
+          "Save expense!": function() {
+            var bValid = true;
+            allFields.removeClass( "ui-state-error" );
+
+            bValid = bValid && checkLength( name, "date", 8, 10 );
+            bValid = bValid && checkLength( email, "amount", 1, 10 );
+            //bValid = bValid && checkLength( password, "password", 1, 5 );
+            bValid = bValid && checkRegexp( name, /^(((((0[1-9])|(1\d)|(2[0-8]))\/((0[1-9])|(1[0-2])))|((31\/((0[13578])|(1[02])))|((29|30)\/((0[1,3-9])|(1[0-2])))))\/((20[0-9][0-9])|(19[0-9][0-9])))|((29\/02\/(19|20)(([02468][048])|([13579][26]))))$/i, "Date format must be dd/mm/yyyy and should be valid." );
+            bValid = bValid && checkRegexp( email, /^[0-9]+$/i, "Amount may consist of 0-9 only.");
+
+            if ( bValid ) {
+              $( "#users tbody" ).append( "<tr>" +
+                "<td>" + name.val() + "</td>" +
+                "<td>" + email.val() + "</td>" +
+                "<td>" + password.val() + "</td>" +
+                "</tr>" );
+              $( this ).dialog( "close" );
+            }
+          },
+          Cancel: function() {
+            $( this ).dialog( "close" );
+          }
+        },
+        close: function() {
+          allFields.val( "" ).removeClass( "ui-state-error" );
+        }
+      });
+
+$( "#create-user" )
+.button()
+.click(function() {
+  $( "#dialog-form" ).dialog( "open" );
+});
+});
+</script>
+
+</head>
+<body>
+<div class="row">
+    <div class="small-12 columns">
+      <a href="menu.html"><img src="img/plus.png" style="margin-left:295px;margin-top:-70px;"></a>
+    </div>
+  </div>
+
+ <div class="row">
+   <div class="small-12-columns">
+    <div id="dialog-form" title="Enter Expense Details">
+      <p class="validateTips">All form fields are required.</p>
+
+      <form>
+        <fieldset>
+          <label for="name">Date: </label>
+          <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">
+          <label for="email">Amount: </label>
+          <input type="text" name="email" id="email" value="" class="text ui-widget-content ui-corner-all">
+          <label for="text">Category: </label>
+          <select name="password" id="password" value="" class="text ui-widget-content ui-corner-all">
+              <option>Personal</option>
+              <option>Transport</option>
+              <option>Health</option>
+              <option>Others</option>
+          </select>
+      
+
+        </fieldset>
+      </form>
+    </div>
+
+
+    <div id="users-contain" class="ui-widget">
+      <h1>Expenses</h1>
+      <table id="users" class="ui-widget ui-widget-content" style="width:50%;">
+        <thead>
+          <tr class="ui-widget-header ">
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>21/01/2012</td>
+            <td>550</td>
+            <td>Personal</td>
+          </tr>
+          <tr>
+            <td>23/04/2012</td>
+            <td>235</td>
+            <td>Transport</td>
+          </tr>
+          <tr>
+            <td>12/09/2012</td>
+            <td>350</td>
+            <td>Personal</td>
+          </tr>
+          <tr>
+            <td>02/12/2012</td>
+            <td>200</td>
+            <td>Others</td>
+          </tr>
+          <tr>
+            <td>21/1/2012</td>
+            <td>900</td>
+            <td>Health</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button id="create-user" >Add new expense</button>
+    <br>
+    
+    <button id = "exps" class="sty" onclick="calc();">View your total expenditure</button>
+    <?php
+    $_GET['']=
+    ?>
+    
+  </div>
+</div>
+</body>
+<script>
+  $(document).foundation();
+</script>
+</html>

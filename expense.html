@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense Manager</title>
+  <link rel="stylesheet" href="css/foundation.css" />
+  <link rel="stylesheet" href="css/expense.css" /> 
+  <script src="js/jquery.js"></script>
+  <script src="js/foundation.js"></script>
+  <script src="js/modernizr.js"></script>
+  <script src="Chartjsmaster/Chart.js"></script>
+</head>
+<body style="background-image: url(img/template.jpg);">
+<div class="row">
+    <div class="large-12 columns">
+      <a href="menu.html"><img src="img/plus.png" style="margin-left:295px;margin-top:-70px;"></a>
+    </div>
+  </div>
+<div class="row">
+  <div class="large-12 columns">
+    <h3 id="new"><b>Manage your expenses!</b></h3>
+    <p>Budget: Rs.5000</p>
+    <p>Expenditure: Rs. 2235</p>
+    <p>Amount Remaining: Rs. 2765</p>
+  </div>
+</div>
+  <div class="row">
+  <canvas id="canvas" height="200" width="200"></canvas>
+  <script>
+    var pieData = [
+        {
+          value: 550,
+          color:"#F38630"
+        },
+        {
+          value : 235,
+          color : "#E0E4CC"
+        },
+        {
+          value : 350,
+          color : "#F38630"
+        },
+        {
+          value : 200,
+          color : "#69D2E7"
+        },
+        {
+          value : 900,
+          color : "#89221F"
+        }
+      
+      ];
+  var myPie = new Chart(document.getElementById("canvas").getContext("2d")).Pie(pieData);
+  
+  </script>
+  <br>
+  <br>
+  <br>
+  <a href="personalexpen.html">Enter more expenses! </a>
+  </div>
+  
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/foundation.min.js"></script>
+<script src="js/foundation.orbit.js"></script>
+<script>
+$(document).foundation();
+</script>
+</html>

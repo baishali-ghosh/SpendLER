@@ -1,0 +1,140 @@
+
+
+@font-face
+{
+	font-family: 'Sniglet', cursive;
+	src: url(font/sniglet-Regular.ttf);
+}
+
+#container{
+
+	position: fixed;
+	width:340px;
+	height:280px;
+	top:50%;
+	left:50%;
+	margin-top: -5px;
+	margin-left: -167px;
+}
+
+
+#container123{
+	position: fixed;
+	width:340px;
+	height:280px;
+	top:50%;
+	left:50%;
+	margin-top: -45px;
+	margin-left: -167px;
+}
+
+
+#signin{
+	position: fixed;
+	width:340px;
+	height:10px;
+	top:50%;
+	left:50%;
+	margin-top: 102px;
+	margin-left: -174px;
+	text-align: center;
+}
+
+#signin123{
+	position: fixed;
+	width:340px;
+	height:10px;
+	top:50%;
+	left:50%;
+	margin-top: 215px;
+	margin-left: -174px;
+	text-align: center;
+}
+
+#container1{
+	position: fixed;
+	width:50px;
+	height:10px;
+	top:50%;
+	left:50%;
+	margin-top: 100px;
+	margin-left: -57px;
+}
+
+#container12{
+	position: fixed;
+	width:50px;
+	height:10px;
+	top:50%;
+	left:50%;
+	margin-top: 215px;
+	margin-left: -57px;
+}
+
+#register{
+	position: fixed;
+	width:340px;
+	height:280px;
+	top:50%;
+	left:50%;
+	margin-top: 130px;
+	margin-left: -100px;
+}
+
+#registerhere{
+	color: #000049;
+}
+
+#username{
+	font-size: 17px;
+	margin-top: 6px;
+}
+
+#password{
+	font-size: 17px;
+	margin-top: 10px;
+}
+
+input.textfield, input.textfield:focus{
+	background: rgba(0,0,0,0.03);
+	background-color: none;
+	border: none;
+}
+
+
+::-webkit-input-placeholder{
+	font-family: 'Sniglet', cursive;
+	src: url(font/sniglet-Regular.ttf);
+	color: black;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+#first, #second, #third, #fourth{
+	text-align: center;
+	font-size: 20px;
+}
+
+#first{
+	margin-top: 150px;
+	height:80px;
+}
+#second{
+	height:80px;
+}
+#third{
+	height:80px;
+}
+#fourth{
+	height:80px;
+}
+
+#buttons{
+	padding-left: 120px;
+}
+
+#dropbutton{
+	width: 200px;
+	margin-left: 100px;
+	margin-right: 100px;
+}

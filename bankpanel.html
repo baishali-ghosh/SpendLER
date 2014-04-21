@@ -1,0 +1,62 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foundation | Welcome</title>
+  <link rel="stylesheet" href="css/foundation.css" /> 
+  <script src="js/modernizr.js"></script>
+  <meta charset="utf-8" />
+  <meta name="format-detection" content="telephone=no" />
+  <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+  <link rel="stylesheet" type="text/css" href="css/custom.css" /> 
+  <title>Hello World</title>
+</head>
+<body style="background-image:url(img/layout.jpg); width:100%; height:100%; background-color : none;">
+
+ <div class="row">
+  <div class="small-12 columns">
+    <label style="margin-top:120px; text-align:center; font-size:20px;"><b>Collect Money From :</b> </label>
+    <input id="checkbox1" type="checkbox" style="margin-left:80px; margin-top: 40px;"><label for="checkbox1">Jeet: 1000Rs.</label><br/>
+    <input id="checkbox2" type="checkbox" style="margin-left:80px;"><label for="checkbox2">Rahul: 1000Rs.</label>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns">
+    <input id="checkbox3" type="checkbox" style="margin-left:80px;"><label for="checkbox3">Anindit: 1000Rs.</label><br/>
+    <input id="checkbox4" type="checkbox" style="margin-left:80px;"><label for="checkbox4">Baishali: 1000Rs.</label>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns">
+    <a href="#" id="linkDash" class="button" style="margin-left: 60px;margin-top:20px;">Return back to Menu</a>
+  </div>
+</div>
+<script src="js/jquery.js"></script>
+<script src="js/foundation.min.js"></script>
+<script>
+  $(document).foundation();
+  $('#linkDash').click(function() {
+    if(localStorage.username == 'anindit')
+      window.location.replace('pageanindit.html');
+    if(localStorage.username == 'jeet')
+      window.location.replace('pagejeet.html');
+    if(localStorage.username == 'parijit')
+      window.location.replace('pageparijit.html');
+    if(localStorage.username == 'baishali')
+      window.location.replace('pagebaishali.html');
+    if(localStorage.username == 'rahul')
+      window.location.replace('pagerahul.html');
+    return false;
+  });
+</script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+  app.initialize();
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foundation | Welcome</title>
+  <link rel="stylesheet" href="css/foundation.css" /> 
+  <script src="js/modernizr.js"></script>
+  <meta charset="utf-8" />
+  <meta name="format-detection" content="telephone=no" />
+  <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+  <link rel="stylesheet" type="text/css" href="css/custom.css" /> 
+  <title>Hello World</title>
+</head>
+<body style="background-image:url(img/layout.jpg); width:100%; height:100%; background-color : none;">
+
+  <div class="row">
+    <div class="small-12 columns">
+      <p style="margin-top:130px; margin-left:80px;">Amount to be paid by each member to the bank, initially.</p>
+      <input type="number" id="eachAmt" name="number" style="width: 200px; margin-left: 80px; height: 40px;">
+      <a href="bankpanel.html" id="bankSubmit" class="button" style="margin-left:120px; height: 35px;"><p style="margin-top: -10px;">Next</p></a>
+    </div>
+  </div>
+
+
+  <script src="js/jquery.js"></script>
+  <script src="js/foundation.min.js"></script>
+  <script>
+    $(document).foundation();
+
+    //$('#bankSubmit').click(function() {
+      /*
+      each = $('#eachAmt').val();
+      num = LocalStorage.num;
+      grpid = LocalStorage.gid;
+
+      total = each*num;
+
+      $.ajax({
+        url: 'http://parichu.0fees.us/putBank.php',
+        type: 'Post',
+        data: {gid: grpid, bank_amt: total},
+        crossDomain: true,
+        cache: false,
+        success: function(retData) {
+          alert(retData);
+          var dataObj = JSON.parse(retData);
+
+          if(!dataObj.success) {
+            alert(dataObj.errorMessage);
+            return false;
+          } else {
+            alert('Successfully added bank_amt');
+            window.location.replace('')
+          }
+        },
+        error: function(xhr) {
+          alert("Error: "+xhr.status);
+        }
+      });
+      */
+    //});
+  </script>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript">
+  app.initialize();
+  </script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foundation | Welcome</title>
+  
+  <script src="js/modernizr.js"></script>
+  <meta charset="utf-8" />
+  <meta name="format-detection" content="telephone=no" />
+  <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+  <link rel="stylesheet" type="text/css" href="css/custom.css" /> 
+  <link rel="stylesheet" href="css/foundation.css" /> 
+  <title>Hello World</title>
+  <script>var j;</script>
+
+</head>
+<body style="background-image:url(img/layout.jpg); width:100%; height:100%; background-color : none;">
+
+
+  <div class="row">
+    <div class="small-12 columns">
+      <p style="font-size:1.1em;margin-top:150px;color:black; margin-left:3.8em;">Number of People Dutching?</p>
+      <label style="margin-left: 60px;">Select People
+        <select id="second12" width="7">
+
+          <center>
+            <option value = "1" onclick="setNum(1)">1 person</option>
+            <option value = "2" onclick="setNum(2);">2 people</option>
+            <option value = "3" onclick="setNum(3);">3 people</option>
+            <option value = "4" onclick="setNum(4);">4 people</option>
+            <option value = "5" onclick="setNum(5);">5 people</option>
+            <option value = "6" onclick="setNum(6);">6 people</option>
+            <option value = "7" onclick="setNum(7);">7 people</option>
+            <option value = "8" onclick="setNum(8);">8 people</option>
+            <option value = "9" onclick="setNum(9);">9 people</option>
+            <option value = "10" onclick="setNum(10);">10 people</option>
+          </center>
+        </select>
+      </label>
+    </div>
+  </div>
+
+  <div class="row"  >
+    <div class="small-12 columns"  >
+      <p id="second12" style="font-size:1.1em;margin-top:40 0px;color:black; margin-left:3.8em; display:none;" >Name of People</p>
+      <form id="peopleNames">
+        <input type="text" style="display:none; margin-left:100px; width:60%;" id="text1" name="person1" placeholder="person1"  />
+        <input type="text" style="display:none; margin-left:100px; width:60%;" id="text2" name="person2" placeholder="person2" />
+        <input type="text" style="display:none; margin-left:100px; width:60%;" id="text3" name="person3" placeholder="person3" />
+        <input type="text" style="display:none; margin-left:100px; width:60%;" id="text4" name="person4" placeholder="person4" />
+        <input type="text" style="display:none; margin-left:100px; width:60%;" id="text5" name="person5" placeholder="person5" />
+        <input type="text" style="display:none; margin-left:100px; width:60%;" id="text6" name="person6" placeholder="person6" />
+        <input type="text" style="display:none; margin-left:100px; width:60%;" id="text7" name="person7" placeholder="person7" />
+        <input type="text" style="display:none; margin-left:100px; width:60%;" id="text8" name="person8" placeholder="person8" />
+        <input type="text" style="display:none; margin-left:100px; width:60%;" id="text9" name="person9" placeholder="person9" />
+        <input type="text" style="display:none; margin-left:100px; width:60%;" id="text10" name="person10" placeholder="person10" />
+        <input type="hidden" id="numPersons" name="numPersons" value="0"/>
+      </form>
+    </div>
+  </div>  
+
+  <div class="row">
+    <div class="small-12 columns">
+      <a href="#" class="button [tiny small large]" id="submitPeople" style="height:40px; width:100px; font-size:15px; margin-left:150px; margin-top:40px;" onclick="replace();">Submit</a>
+    </div>
+  </div>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/foundation.min.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript">
+    app.initialize();
+  </script>
+  <script>
+    function replace(){
+      j = document.getElementById("second12").value;
+      document.getElementById("second12").style.display='block';
+
+      for (i=1;i<=j;i++){
+        document.getElementById("text"+i).style.display='block';
+      }
+
+      $('#submitPeople').attr('onclick','submitPeople();');
+/* if(localStorage.text1)
+    localStorage.text1=document.getElementById("text1").value;
+    else
+    {
+      localStorage.text1=1;
+      localStorage.text1=document.getElementById("text1").value;
+    }
+    localStorage.text2=document.getElementById("text2").value;
+    localStorage.text3=document.getElementById("text3").value;
+    localStorage.text4=document.getElementById("text4").value;
+    localStorage.text5=document.getElementById("text5").value;
+    localStorage.text6=document.getElementById("text6").value;
+    localStorage.text7=document.getElementById("text7").value;
+    localStorage.text8=document.getElementById("text8").value;
+    localStorage.text9=document.getElementById("text9").value;
+    localStorage.text10=document.getElementById("text10").value;
+
+    alert(localStorage.text1);
+    localStorage.n=j;  */
+  }
+
+  function submitPeople() {
+    //alert('here1');
+    var valid = true;
+
+    for(i=1; i<=j; i++) {
+      if($('#text'+i).val() == '') {
+        valid = false;
+        break;
+      }
+    }
+
+    //alert('here2');
+    if(!valid) {
+      var errorMessage = 'All fields are required';
+      return app.showErrorDiv(errorMessage);
+    } else {
+      var formData = $('#peopleNames').serialize();
+      //var formData = '';
+      /*
+      for(i=1; i<=j-1; i++) {
+        formData = formData+'person'+i+'='+$('#text'+i).val()+'&';
+      }
+      formData = formData+'person'+i+'='+$('#text'+i).val();
+      */
+      //alert(formData);
+      $.ajax({
+        url: 'http://parichu.0fees.us/addGroup.php',
+        type: 'Post',
+        data: formData,
+        crossDomain: true,
+        cache: false,
+        success: function(retData) {
+          //alert(retData);
+          var dataObj = JSON.parse(retData);
+
+          if(!dataObj.success) {
+            alert(dataObj.errorMessage);
+            //app.showErrorDiv(dataObj.errorMessage);
+            return false;
+          } else {
+            gid = dataObj.gid;
+            alert("Successfully inserted to database. Gid="+gid);
+            localStorage.gid = gid;
+            localStorage.num = $('#numPersons').val();
+            window.location.replace('dutchin.html');
+            return false;
+          }
+        },
+        error: function(xhr) {
+          alert('Error: '+xhr.status);
+        }
+      });
+    }
+
+    return false;
+  }
+
+  function setNum(i){
+    $('#numPersons').val(i);
+  }
+</script>
+
+
+<script>
+
+
+
+</script>
+</body>
+</html>

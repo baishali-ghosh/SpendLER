@@ -1,0 +1,76 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foundation | Welcome</title>
+  <link rel="stylesheet" href="css/foundation.css" /> 
+  <script src="js/modernizr.js"></script>
+  <meta charset="utf-8" />
+  <meta name="format-detection" content="telephone=no" />
+  <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+  <link rel="stylesheet" type="text/css" href="css/custom.css" /> 
+  <title>Hello World</title>
+</head>
+<body style="background-image:url(img/layout.jpg); width:100%; height:100%; background-color : none;">
+
+  <a href="expense.html" >
+    <div class="row" id="first">
+      <div class="small-12 columns">
+          <p style="font-size:1.1em; margin-top:10px;color:black; margin-left:3.8em;">Personal Expenditure</p>  
+      </div>
+    </div>
+  </a>
+
+  <a href="#" >
+    <div class="row" id="second">
+      <div class="small-12 columns">
+        <p style="font-size:1.1em;margin-top:10px;color:black; margin-left:3.8em;">Lend/Borrow</p>
+      </div>
+    </div>
+  </a>
+
+  <a href="dutchpeople.html" >
+    <div class="row" id="third">
+      <div class="small-12 columns">  
+        <p style="font-size:1.1em;margin-top:10px;color:black; margin-left:3.8em;">Dutch In</p>
+      </div>
+    </div>
+  </a>
+
+  <a href="#" id="currEx">
+    <div class="row" id="fourth">
+      <div class="small-12 columns">
+        <p style="font-size:1.1em;margin-top:10px;color:black; margin-left:3.8em;">Dashboard</p>
+      </div>
+    </div>
+  </a>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/foundation.min.js"></script>
+  <script>
+  $(document).foundation();
+  </script>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript">
+  app.initialize();
+  </script>
+  <script>
+  $('#currEx').click(function() {
+    if(localStorage.username == 'jeet')
+      window.location.replace('pagejeet.html');
+    if(localStorage.username == 'anindit')
+      window.location.replace('pageanindit.html');
+    if(localStorage.username == 'parijit')
+      window.location.replace('pageparijit.html');
+    if(localStorage.username == 'baishali')
+      window.location.replace('pagebaishali.html');
+    if(localStorage.username == 'rahul')
+      window.location.replace('pagerahul.html');
+
+  });
+  </script>
+</body>
+</html>
